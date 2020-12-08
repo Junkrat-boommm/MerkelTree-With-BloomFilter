@@ -1,10 +1,9 @@
 CC = gcc
 # CFLAGS = -Wall -g
-LDLIBS = -lm
 
 
 bench: bench.o bf.o murmur2.o
-	gcc -o bench bench.o bf.o murmur2.o 
+	gcc -o bench bench.o bf.o murmur2.o -lm
 
 bench.o: bench.c 
 	gcc -c bench.c -o bench.o
