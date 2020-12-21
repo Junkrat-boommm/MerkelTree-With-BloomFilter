@@ -10,7 +10,7 @@
 
 typedef long clock_t;
 
-#define TEST_NUM 100000
+#define TEST_NUM 1024 
 #define use_bloom 1
 
 void test_create_leafnode_list() {
@@ -97,8 +97,8 @@ void test_many_data() {
     gettimeofday(&end_without_bloomfilter, NULL);
     /* 统计程序段运行时间(unit is usec)*/
     timer_without_bloomfilter = 1000000 * (end_without_bloomfilter.tv_sec - start_without_bloomfilter.tv_sec) + end_without_bloomfilter.tv_usec - start_without_bloomfilter.tv_usec;
-    printf("verify data with bloomfilter takes %ld us.\n", timer_with_bloomfilter);
-    printf("verify data without bloomfilter takes %ld us.\n", timer_without_bloomfilter);
+    printf("verify data with bloomfilter takes %lf ms.\n", ((double)timer_with_bloomfilter)/1000);
+    printf("verify data without bloomfilter takes %lf ms.\n", ((double)timer_without_bloomfilter)/1000);
 
 }
 
