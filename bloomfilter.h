@@ -158,6 +158,9 @@ void bloom_free(struct bloom * bloom);
 int bloom_reset(struct bloom * bloom);
 
 
+void bloom_and(struct bloom *b1, struct bloom *b2, struct bloom *b);
+
+
 /** ***************************************************************************
  * Returns version string compiled into library.
  *

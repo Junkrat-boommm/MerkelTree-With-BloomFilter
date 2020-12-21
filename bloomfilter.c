@@ -44,6 +44,15 @@ inline static int test_bit_set_bit(unsigned char * buf,
   }
 }
 
+void bloom_and(struct bloom *b1, struct bloom *b2, struct bloom *b) {
+  assert((b1->entries == b2->entries) && (b1->error == b2->error));
+  bloom_init(b, b1->entries, b1->error);
+  int i=0;
+  while(i < b1->bytes) {
+    b->bf[i] = b1->bf[i] | b2->bf[i];
+    i++;
+  }
+}
 
 static int bloom_check_add(struct bloom * bloom,
                            const void * buffer, int len, int add)
